@@ -1,5 +1,40 @@
 # browserify -x issue
 
+After figuring out what the issue was below (see the related pull request:
+https://github.com/substack/node-browserify/issues/1422), I ran into another
+issue, this time related to the programmatic api and passing an instance of the
+bundler.
+
+This project has been updated with a `gulpfile.js` which illustrates this issue
+
+```bash
+$ git clone https://github.com/chielkunkels/browserify-issue
+$ cd browserify-issue
+$ npm i
+$ ./node_modules/.bin/gulp
+```
+
+Or you can simply run `gulp` if you have it globally installed.
+
+Then:
+
+```bash
+$ open dist/index.html
+```
+
+Pop open the dev tools config and you'll see something like:
+
+```
+app.js:19016   client routes!
+login.js:1     Uncaught Error: Cannot find module '157'
+```
+
+So, even though `login.js` is correctly factoring out the modules found in
+`app.js`, for some reason it can't seem to "access" that require function.
+
+
+## Outdated below this heading
+
 This is a repository meant to illustrate an issue I've been having with
 browserify's `-x` feature.
 
