@@ -1,0 +1,14 @@
+{
+  "name": "browserify-test",
+  "scripts": {
+    "build": "mkdir -p dist/js && browserify -x src/modules/login/routes.js src/client/index.js > dist/js/app.js",
+    "build-login": "mkdir -p dist/js && browserify -x dist/js/app.js src/modules/login/routes.js > dist/js/login.js",
+    "build-login-alt": "mkdir -p dist/js && browserify -x react src/modules/login/routes.js > dist/js/login.js"
+  },
+  "dependencies": {
+    "react": "^0.14.2"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1"
+  }
+}
