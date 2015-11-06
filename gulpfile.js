@@ -7,6 +7,7 @@ gulp.task('scripts', function() {
 	var appBundler   = browserify('src/client/index.js');
 	var loginBundler = browserify('src/modules/login/routes.js');
 
+	appBundler.require(__dirname + '/src/client/index.js');
 	loginBundler.external(appBundler);
 
 	var bundlers = [ appBundler, loginBundler ];
