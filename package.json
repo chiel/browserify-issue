@@ -6,6 +6,7 @@
     "build-login-alt": "mkdir -p dist/js && browserify -x react src/modules/login/routes.js > dist/js/login.js"
   },
   "dependencies": {
+    "fg-loadjs": "^0.2.3",
     "react": "^0.14.2"
   },
   "devDependencies": {
